@@ -131,13 +131,6 @@
       border: none; border-radius: var(--radius);
     }
 
-    /* ── PDF embed ── */
-    .pdf-wrap {
-      width: 100%; border-radius: var(--radius); overflow: hidden;
-      box-shadow: var(--shadow); border: 1px solid #e5e7eb;
-    }
-    .pdf-wrap iframe { display: block; width: 100%; border: none; }
-
     /* ── Method stage cards ── */
     .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
                   gap: 1.25rem; margin-top: 2rem; }
@@ -199,9 +192,10 @@
       font-size: 1rem; font-weight: 700; margin: 2rem 0 1rem;
       padding-left: 0.8rem; border-left: 4px solid;
     }
-    .bench-section-title.libero  { border-color: var(--color-libero);  color: var(--color-libero); }
-    .bench-section-title.manis   { border-color: var(--color-maniskill); color: var(--color-maniskill); }
-    .bench-section-title.b1k     { border-color: var(--color-b1k);    color: var(--color-b1k); }
+    .bench-section-title.libero  { border-color: var(--color-libero);     color: var(--color-libero); }
+    .bench-section-title.manis   { border-color: var(--color-maniskill);  color: var(--color-maniskill); }
+    .bench-section-title.b1k     { border-color: var(--color-b1k);        color: var(--color-b1k); }
+    .bench-section-title.real    { border-color: var(--color-real);        color: var(--color-real); }
 
     /* ── Contribution list ── */
     .contrib-list { list-style: none; padding: 0; margin-top: 1.2rem; }
@@ -374,10 +368,20 @@
     <div class="video-wrap" style="max-width:880px;margin:0 auto;">
       <iframe
         src="https://drive.google.com/file/d/1fysYpAlUS85E-9s59V2dO78midyTyE6C/preview"
-        allow="autoplay"
-        allowfullscreen>
+        allow="autoplay; encrypted-media; fullscreen"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        loading="lazy">
       </iframe>
     </div>
+    <p style="text-align:center;margin-top:0.9rem;font-size:0.85rem;color:#888;">
+      Video not loading?
+      <a href="https://drive.google.com/file/d/1fysYpAlUS85E-9s59V2dO78midyTyE6C/view"
+         target="_blank" style="color:var(--color-accent);font-weight:600;">
+        Watch directly on Google Drive ↗
+      </a>
+      &nbsp;(make sure the file is shared as "Anyone with the link can view")
+    </p>
   </div>
 </section>
 
@@ -426,9 +430,11 @@
       conformal prediction for deployment.
     </p>
 
-    <!-- Method PDF figure -->
-    <div class="pdf-wrap" style="max-width:1000px;margin:0 auto 2rem;">
-      <iframe src="static/pdfs/method_3_stage_training.pdf" height="520px"></iframe>
+    <!-- Method figure -->
+    <div style="max-width:1000px;margin:0 auto 2rem;text-align:center;">
+      <img src="static/images/method_figure.png"
+           alt="Foresight three-stage pipeline overview"
+           style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow);">
     </div>
 
     <!-- Stage cards -->
@@ -638,6 +644,43 @@
         <p class="qual-caption">
           Cook Hot Dogs: Robot fails to grasp the first hot dog; Foresight raises an
           alarm early in the trajectory.
+        </p>
+      </div>
+    </div>
+
+    <!-- Real-World Exp -->
+    <h3 class="bench-section-title real" style="max-width:1000px;margin-left:auto;margin-right:auto;">
+      Real-World Exp.
+    </h3>
+    <div class="qual-grid" style="max-width:1000px;margin:0 auto 0;">
+      <div class="qual-block">
+        <span class="qual-label ql-tn"><i class="fas fa-check-circle"></i> True Negative — No Alarm</span>
+        <div class="qual-video">
+          <!-- TODO: replace with static/videos/real_tn_video.mp4 -->
+          <div class="ph" style="min-height:220px;">
+            <i class="fas fa-video"></i>
+            <b>Real-World True Negative</b>
+            <small>Add file: <code>static/videos/real_tn_video.mp4</code></small>
+          </div>
+        </div>
+        <p class="qual-caption">
+          Successful real-robot rollout (ReactorX / ACT — Pick Banana &amp; Lion Toy).
+          Score stays below the FCP threshold throughout — no false alarm.
+        </p>
+      </div>
+      <div class="qual-block">
+        <span class="qual-label ql-tp"><i class="fas fa-exclamation-circle"></i> True Positive — Alarm Raised</span>
+        <div class="qual-video">
+          <!-- TODO: replace with static/videos/real_tp_video.mp4 -->
+          <div class="ph" style="min-height:220px;">
+            <i class="fas fa-video"></i>
+            <b>Real-World True Positive</b>
+            <small>Add file: <code>static/videos/real_tp_video.mp4</code></small>
+          </div>
+        </div>
+        <p class="qual-caption">
+          Failing real-robot episode (ReactorX / ACT — Pick Banana &amp; Lion Toy).
+          Robot fails to pick up the banana; Foresight raises an alarm mid-execution.
         </p>
       </div>
     </div>
@@ -868,8 +911,10 @@
       We validate Foresight on two robot platforms across four tasks,
       spanning three different VLA policies.
     </p>
-    <div class="pdf-wrap" style="max-width:860px;margin:0 auto;">
-      <iframe src="static/pdfs/real_robot_setup.pdf" height="440px"></iframe>
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <img src="static/images/real_robot_setup.png"
+           alt="Real-robot experimental setup"
+           style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow);">
     </div>
     <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
       <div style="flex:1;min-width:240px;background:#fff;border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--color-real);">
