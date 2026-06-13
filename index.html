@@ -4,33 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="title" content="Foresight: Failure Detection for Long-Horizon Robotic Manipulation - Haoran Zhang, Yifu Lu et al.">
-  <meta name="description" content="Foresight is a failure detection framework that monitors robot manipulation trajectories using latent representations from an action-conditioned world model, trained with only final task-level success/failure labels.">
-  <meta name="keywords" content="Failure Detection, Long-Horizon Tasks, World Models, Robotic Manipulation, Conformal Prediction, V-JEPA, Action-Conditioned, VLA">
+  <meta name="title" content="Foresight: Failure Detection for Long-Horizon Robotic Manipulation">
+  <meta name="description" content="Foresight monitors robot manipulation trajectories using action-conditioned world model latents and functional conformal prediction — no policy internals required.">
+  <meta name="keywords" content="Failure Detection, Long-Horizon Tasks, World Models, Robotic Manipulation, Conformal Prediction, V-JEPA 2-AC, VLA">
   <meta name="author" content="Haoran Zhang, Yifu Lu, Boyang Wang, Xuhui Kang, Yen-Ling Kuo, Zezhou Cheng, Mengdi Wang, Odest Chadwicke Jenkins">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
 
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="University of Michigan / Princeton University / University of Virginia">
   <meta property="og:title" content="Foresight: Failure Detection for Long-Horizon Robotic Manipulation">
-  <meta property="og:description" content="Foresight monitors robot manipulation trajectories using action-conditioned world model latents and functional conformal prediction — no policy internals required.">
+  <meta property="og:description" content="Action-conditioned world model latents enable reliable failure detection across VLA policies with only task-level labels.">
   <meta property="og:url" content="https://haoranzhangumich.github.io/Forsight_web/">
-  <meta property="og:image" content="https://haoranzhangumich.github.io/Forsight_web/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Foresight - Failure Detection Research Preview">
-  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
-  <meta property="article:author" content="Haoran Zhang">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="Failure Detection">
-  <meta property="article:tag" content="World Models">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Foresight: Failure Detection for Long-Horizon Robotic Manipulation">
-  <meta name="twitter:description" content="Foresight monitors robot manipulation trajectories using action-conditioned world model latents and functional conformal prediction — no policy internals required.">
-  <meta name="twitter:image" content="https://haoranzhangumich.github.io/Forsight_web/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="Foresight - Failure Detection Research Preview">
+  <meta property="og:image" content="https://haoranzhangumich.github.io/Forsight_web/static/images/task_overview_all.png">
 
   <meta name="citation_title" content="Foresight: Failure Detection for Long-Horizon Robotic Manipulation with Action-Conditioned World Model Latents">
   <meta name="citation_author" content="Zhang, Haoran">
@@ -44,30 +28,20 @@
   <meta name="citation_publication_date" content="2026">
   <meta name="citation_conference_title" content="Under Review">
 
-  <meta name="theme-color" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Foresight: Failure Detection for Long-Horizon Robotic Manipulation</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-  <title>Foresight: Failure Detection for Long-Horizon Robotic Manipulation | CoRL 2026</title>
-
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
@@ -75,1027 +49,889 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
 
   <style>
-    /* ── Placeholder boxes for images/videos not yet provided ── */
-    .placeholder-box {
-      background: #f0f0f0;
-      border: 2px dashed #aaa;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 0.95rem;
-      text-align: center;
-      padding: 1rem;
-      min-height: 260px;
-      width: 100%;
+    /* ── Global ── */
+    :root {
+      --color-maniskill: #1DBECF;   /* cyan  — matches task_overview_all.png bar */
+      --color-b1k:       #58B04A;   /* green — matches task_overview_all.png bar */
+      --color-libero:    #9B6BC8;   /* purple — matches task_overview_all.png bar */
+      --color-real:      #E8892E;   /* orange — matches task_overview_all.png bar */
+      --color-accent:    #2563eb;
+      --radius:          10px;
+      --shadow:          0 4px 18px rgba(0,0,0,0.10);
     }
-    .placeholder-box .ph-icon { font-size: 2.5rem; margin-bottom: 0.5rem; color: #bbb; }
-    .placeholder-box .ph-label { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
-    .placeholder-box .ph-hint  { font-size: 0.8rem; color: #999; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a1a; }
 
-    /* ── Results tables ── */
-    .results-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-      margin-top: 1rem;
+    /* ── Section rhythm ── */
+    .sec { padding: 4rem 1.5rem; }
+    .sec-light { background: #f7f8fa; }
+    .sec-white { background: #ffffff; }
+
+    /* ── Max-width containers ── */
+    .wrap     { max-width: 1100px; margin: 0 auto; }
+    .wrap-wide{ max-width: 1280px; margin: 0 auto; }
+
+    /* ── Hero ── */
+    .hero-section { padding: 3.5rem 1.5rem 2.5rem; background: #fff; }
+    .pub-title  { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800;
+                  line-height: 1.25; letter-spacing: -0.5px; }
+    .author-row { font-size: 1rem; margin-top: 0.9rem; flex-wrap: wrap;
+                  display: flex; justify-content: center; gap: 0.25rem 0.6rem; }
+    .author-row a { color: #2563eb; text-decoration: none; }
+    .author-row a:hover { text-decoration: underline; }
+    .affil-row  { font-size: 0.85rem; color: #555; margin-top: 0.4rem; }
+    .venue-pill {
+      display: inline-block;
+      background: #fef3c7; color: #92400e;
+      border: 1px solid #fde68a;
+      border-radius: 20px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.82rem; font-weight: 700;
+      margin-top: 0.7rem;
     }
-    .results-table th {
-      background: #f5f5f5;
-      border: 1px solid #ddd;
-      padding: 0.55rem 0.7rem;
-      text-align: center;
-      font-weight: 700;
+    .link-row   { display: flex; flex-wrap: wrap; justify-content: center;
+                  gap: 0.5rem; margin-top: 1.1rem; }
+    .link-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px; font-size: 0.88rem; font-weight: 600;
+      background: #1a1a1a; color: #fff;
+      text-decoration: none; transition: background .18s;
     }
-    .results-table td {
-      border: 1px solid #ddd;
-      padding: 0.5rem 0.7rem;
-      text-align: center;
+    .link-btn:hover { background: #333; color: #fff; }
+    .kw-row { margin-top: 0.9rem; display: flex; flex-wrap: wrap;
+              justify-content: center; gap: 0.3rem; }
+    .kw { background: #f0f4ff; color: #3b5bdb; border-radius: 20px;
+          padding: 0.18rem 0.75rem; font-size: 0.78rem; font-weight: 500; }
+
+    /* ── Section headings ── */
+    .sec-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 1rem;
+                 text-align: center; letter-spacing: -0.3px; }
+    .sec-sub   { text-align: center; color: #555; font-size: 0.95rem;
+                 max-width: 720px; margin: 0 auto 2rem; line-height: 1.6; }
+
+    /* ── Divider ── */
+    .sec-divider { width: 48px; height: 4px; border-radius: 2px;
+                   background: var(--color-accent); margin: 0 auto 1.5rem; }
+
+    /* ── Video embed (16:9) ── */
+    .video-wrap {
+      position: relative; padding-bottom: 56.25%; height: 0;
+      overflow: hidden; border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    .results-table tr:last-child td { font-weight: 600; }
-    .results-table .method-name { text-align: left; font-weight: 500; }
-    .results-table .best    { color: #1a73e8; font-weight: 700; }
-    .results-table .second  { color: #e67e00; font-weight: 600; }
-    .results-table .divider td { background: #f5f5f5; font-size: 0.75rem;
-                                  font-style: italic; color: #777; }
-    .table-caption {
-      font-size: 0.85rem;
-      color: #555;
-      margin-top: 0.6rem;
-      line-height: 1.5;
+    .video-wrap iframe,
+    .video-wrap video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: none; border-radius: var(--radius);
     }
-    .table-scroll { overflow-x: auto; }
+
+    /* ── PDF embed ── */
+    .pdf-wrap {
+      width: 100%; border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid #e5e7eb;
+    }
+    .pdf-wrap iframe { display: block; width: 100%; border: none; }
 
     /* ── Method stage cards ── */
-    .stage-cards { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+                  gap: 1.25rem; margin-top: 2rem; }
     .stage-card {
-      flex: 1;
-      min-width: 220px;
-      background: #fff;
-      border-radius: 10px;
-      padding: 1.4rem 1.2rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      border-top: 4px solid;
+      border-radius: var(--radius); padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow); background: #fff;
+      border-top: 5px solid;
     }
-    .stage-card.s1 { border-color: #4CAF50; }
-    .stage-card.s2 { border-color: #2196F3; }
-    .stage-card.s3 { border-color: #FF9800; }
-    .stage-card .stage-num  { font-size: 0.75rem; font-weight: 700;
-                               text-transform: uppercase; letter-spacing: 1px; color: #888; }
-    .stage-card .stage-title { font-size: 1.05rem; font-weight: 700;
-                                margin: 0.3rem 0 0.6rem; }
-    .stage-card p  { font-size: 0.88rem; color: #555; line-height: 1.55; }
+    .stage-card.s1 { border-color: #22c55e; }
+    .stage-card.s2 { border-color: #3b82f6; }
+    .stage-card.s3 { border-color: #f59e0b; }
+    .stage-num   { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+                   text-transform: uppercase; color: #999; }
+    .stage-title { font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.65rem; }
+    .stage-card p { font-size: 0.88rem; color: #555; line-height: 1.6; }
 
-    /* ── Contribution bullets ── */
-    .contrib-list { list-style: none; padding: 0; margin-top: 1rem; }
+    /* ── Benchmark strip ── */
+    .bench-grid { display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  gap: 1rem; margin-bottom: 2rem; }
+    @media(max-width: 760px){ .bench-grid { grid-template-columns: repeat(2,1fr); } }
+    .bench-card {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .bench-head {
+      padding: 0.55rem 1rem;
+      font-size: 0.8rem; font-weight: 700; color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .bench-card.libero  .bench-head { background: var(--color-libero); }
+    .bench-card.manis   .bench-head { background: var(--color-maniskill); }
+    .bench-card.b1k     .bench-head { background: var(--color-b1k); }
+    .bench-card.real    .bench-head { background: var(--color-real); }
+    .bench-body { padding: 0.7rem 1rem; background: #fafafa;
+                  font-size: 0.82rem; color: #444; }
+    .bench-body span { display: block; margin-bottom: 0.18rem; }
+
+    /* ── Qualitative results ── */
+    .qual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media(max-width: 680px){ .qual-grid { grid-template-columns: 1fr; } }
+    .qual-block { }
+    .qual-label {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.75rem; font-weight: 700; border-radius: 6px;
+      padding: 0.2rem 0.65rem; margin-bottom: 0.5rem;
+    }
+    .ql-tn { background: #dcfce7; color: #166534; }
+    .ql-tp { background: #fee2e2; color: #991b1b; }
+    .qual-video {
+      border-radius: 8px; overflow: hidden; box-shadow: var(--shadow);
+      background: #000;
+    }
+    .qual-video video { display: block; width: 100%; max-height: 300px;
+                        object-fit: contain; }
+    .qual-caption { font-size: 0.82rem; color: #555; margin-top: 0.5rem;
+                    line-height: 1.5; }
+    .bench-section-title {
+      font-size: 1rem; font-weight: 700; margin: 2rem 0 1rem;
+      padding-left: 0.8rem; border-left: 4px solid;
+    }
+    .bench-section-title.libero  { border-color: var(--color-libero);  color: var(--color-libero); }
+    .bench-section-title.manis   { border-color: var(--color-maniskill); color: var(--color-maniskill); }
+    .bench-section-title.b1k     { border-color: var(--color-b1k);    color: var(--color-b1k); }
+
+    /* ── Contribution list ── */
+    .contrib-list { list-style: none; padding: 0; margin-top: 1.2rem; }
     .contrib-list li {
-      padding: 0.6rem 0 0.6rem 2rem;
-      position: relative;
-      border-bottom: 1px solid #eee;
-      font-size: 0.93rem;
-      line-height: 1.6;
+      position: relative; padding: 0.7rem 0 0.7rem 2.2rem;
+      border-bottom: 1px solid #eee; font-size: 0.93rem; line-height: 1.65;
     }
     .contrib-list li::before {
-      content: "✦";
-      position: absolute;
-      left: 0;
-      color: #2196F3;
-      font-size: 0.8rem;
-      top: 0.75rem;
+      content: "✦"; position: absolute; left: 0.3rem; top: 0.85rem;
+      color: var(--color-accent); font-size: 0.75rem;
     }
 
-    /* ── Qualitative pair layout ── */
-    .qual-pair { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .qual-pair > div { flex: 1; min-width: 280px; }
-    .qual-label {
-      display: inline-block;
-      padding: 0.15rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
+    /* ── Results tables ── */
+    .tbl-wrap { overflow-x: auto; border-radius: var(--radius);
+                box-shadow: var(--shadow); }
+    .rtbl {
+      width: 100%; border-collapse: collapse; font-size: 0.85rem;
+      background: #fff;
     }
-    .qual-label.tn { background: #e8f5e9; color: #2e7d32; }
-    .qual-label.tp { background: #fce4ec; color: #c62828; }
-    .qual-pair .caption { font-size: 0.82rem; color: #666; margin-top: 0.4rem; line-height: 1.4; }
-
-    /* ── Benchmark overview grid ── */
-    .benchmark-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-                       gap: 1rem; margin-top: 1rem; }
-    .benchmark-card {
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .benchmark-card .bcard-header {
-      padding: 0.5rem 0.8rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    .benchmark-card.libero  .bcard-header { background: #1565C0; }
-    .benchmark-card.manis   .bcard-header { background: #6A1B9A; }
-    .benchmark-card.behav   .bcard-header { background: #E65100; }
-    .benchmark-card.real    .bcard-header { background: #2E7D32; }
-    .benchmark-card .bcard-body {
-      padding: 0.6rem 0.8rem;
-      background: #fafafa;
+    .rtbl th {
+      background: #f1f5f9; border: 1px solid #e2e8f0;
+      padding: 0.6rem 0.8rem; text-align: center; font-weight: 700;
       font-size: 0.82rem;
-      color: #444;
     }
-    .benchmark-card .bcard-body span { display: block; margin-bottom: 0.15rem; }
+    .rtbl td {
+      border: 1px solid #e2e8f0; padding: 0.52rem 0.8rem; text-align: center;
+    }
+    .rtbl .mn { text-align: left; font-weight: 500; }
+    .rtbl .best   { color: #1d4ed8; font-weight: 700; }
+    .rtbl .second { color: #c2410c; font-weight: 600; }
+    .rtbl .sep td { background: #f8fafc; font-size: 0.75rem;
+                    font-style: italic; color: #888; }
+    .tbl-caption {
+      font-size: 0.83rem; color: #666; margin-top: 0.75rem; line-height: 1.55;
+    }
 
-    /* ── section spacing ── */
-    .section-gap { padding-top: 3rem; padding-bottom: 3rem; }
+    /* ── BibTeX ── */
+    #BibTeX pre {
+      background: #1e293b; color: #e2e8f0;
+      border-radius: var(--radius); padding: 1.5rem;
+      font-size: 0.83rem; line-height: 1.6;
+      overflow-x: auto;
+    }
+    .bibtex-header { display: flex; align-items: center;
+                     justify-content: space-between; margin-bottom: 0.8rem; }
+    .copy-bibtex-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: #f1f5f9; border: 1px solid #cbd5e1;
+      border-radius: 6px; padding: 0.3rem 0.8rem;
+      font-size: 0.82rem; cursor: pointer; font-weight: 500;
+    }
+    .copy-bibtex-btn:hover { background: #e2e8f0; }
 
-    /* ── Tag pill for key terms ── */
-    .keyword-tags { margin-top: 0.8rem; }
-    .keyword-tags .tag { margin: 0.2rem; font-size: 0.78rem; }
+    /* ── Placeholder (for assets not yet provided) ── */
+    .ph {
+      background: #f1f5f9; border: 2px dashed #cbd5e1; border-radius: 8px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; padding: 1.5rem; text-align: center;
+      color: #94a3b8;
+    }
+    .ph i { font-size: 2rem; margin-bottom: 0.5rem; }
+    .ph b { color: #64748b; font-size: 0.9rem; }
+    .ph small { font-size: 0.78rem; }
+
+    /* ── Footer ── */
+    .site-footer { background: #1e293b; color: #94a3b8;
+                   padding: 2rem 1.5rem; text-align: center; font-size: 0.83rem; }
+    .site-footer a { color: #93c5fd; }
   </style>
 </head>
 
 <body>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+<main id="main-content">
 
-  <main id="main-content">
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════ -->
+<section class="hero-section">
+  <div class="wrap has-text-centered">
 
-  <!-- ═══════════════════════════════════════════════════════
-       HERO — Title, Authors, Links
-  ════════════════════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
+    <h1 class="pub-title">
+      Foresight: Failure Detection for Long-Horizon<br>
+      Robotic Manipulation with Action-Conditioned<br>
+      World Model Latents
+    </h1>
 
-            <h1 class="title is-2 publication-title">
-              Foresight: Failure Detection for Long-Horizon Robotic Manipulation
-              with Action-Conditioned World Model Latents
-            </h1>
-
-            <div class="is-size-5 publication-authors" style="margin-top:1rem;">
-              <span class="author-block">
-                <a href="https://haoranzhangumich.github.io/" target="_blank">Haoran Zhang</a><sup>1,*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Yifu Lu</a><sup>2,*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Boyang Wang</a><sup>3</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Xuhui Kang</a><sup>3</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Yen-Ling Kuo</a><sup>3</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Zezhou Cheng</a><sup>3</sup>,
-              </span>
-              <span class="author-block">
-                <a href="#" target="_blank">Mengdi Wang</a><sup>2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://ocj.name/" target="_blank">Odest Chadwicke Jenkins</a><sup>1,†</sup>
-              </span>
-            </div>
-
-            <div class="is-size-6 publication-authors" style="margin-top:0.5rem;">
-              <span class="author-block"><sup>1</sup>University of Michigan &nbsp;
-                <sup>2</sup>Princeton University &nbsp;
-                <sup>3</sup>University of Virginia</span>
-              <span class="eql-cntrb"><small><br>
-                <sup>*</sup>Equal contribution &nbsp;&nbsp;
-                <sup>†</sup>Corresponding author
-              </small></span>
-            </div>
-
-            <!-- Venue badge -->
-            <div style="margin-top:0.8rem;">
-              <span class="tag is-warning is-medium" style="font-weight:600; color:#5a3e00;">
-                Under Review
-              </span>
-            </div>
-
-            <!-- Keyword tags -->
-            <div class="keyword-tags">
-              <span class="tag is-light">Failure Detection</span>
-              <span class="tag is-light">Long-Horizon Manipulation</span>
-              <span class="tag is-light">World Models</span>
-              <span class="tag is-light">Conformal Prediction</span>
-              <span class="tag is-light">V-JEPA 2-AC</span>
-            </div>
-
-            <!-- Link buttons -->
-            <div class="column has-text-centered" style="margin-top:1rem;">
-              <div class="publication-links">
-
-                <!-- Paper PDF — update with arXiv ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/pdf/ARXIV_ID.pdf" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-
-                <!-- Code — update with repo URL -->
-                <span class="link-block">
-                  <a href="https://github.com/YOUR_CODE_REPO" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- Video — update with YouTube ID -->
-                <span class="link-block">
-                  <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-youtube"></i></span>
-                    <span>Video</span>
-                  </a>
-                </span>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
+    <div class="author-row">
+      <span><a href="https://haoranzhangumich.github.io/" target="_blank">Haoran Zhang</a><sup>1,*</sup></span>
+      <span><a href="#" target="_blank">Yifu Lu</a><sup>2,*</sup></span>
+      <span><a href="#" target="_blank">Boyang Wang</a><sup>3</sup></span>
+      <span><a href="#" target="_blank">Xuhui Kang</a><sup>3</sup></span>
+      <span><a href="#" target="_blank">Yen-Ling Kuo</a><sup>3</sup></span>
+      <span><a href="#" target="_blank">Zezhou Cheng</a><sup>3</sup></span>
+      <span><a href="#" target="_blank">Mengdi Wang</a><sup>2</sup></span>
+      <span><a href="https://ocj.name/" target="_blank">Odest Chadwicke Jenkins</a><sup>1,†</sup></span>
     </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       TEASER — Overview figure or banner video
-  ════════════════════════════════════════════════════════ -->
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-
-        <!-- PLACEHOLDER: replace with static/videos/teaser.mp4 or Figure 1 image -->
-        <div class="placeholder-box" style="min-height:340px;">
-          <div class="ph-icon"><i class="fas fa-video"></i></div>
-          <div class="ph-label">Teaser Video or Overview Figure</div>
-          <div class="ph-hint">Replace with <code>static/videos/teaser.mp4</code><br>
-            or the pipeline overview image (Figure 1 from paper)</div>
-        </div>
-        <!-- When ready, use instead:
-        <video poster="static/images/teaser_poster.jpg" id="teaser"
-               autoplay controls muted loop height="100%" preload="metadata">
-          <source src="static/videos/teaser.mp4" type="video/mp4">
-        </video>
-        -->
-
-        <h2 class="subtitle has-text-centered" style="margin-top:1.2rem;">
-          <strong>Foresight</strong> detects robot failures in real time by monitoring
-          action-conditioned world-model latents — no policy internals required.
-          Trained with only final task-level success/failure labels, it generalizes
-          across VLA policies, embodiments, and tasks up to <em>8,000+ steps</em> long.
-        </h2>
-      </div>
+    <div class="affil-row">
+      <sup>1</sup>University of Michigan &ensp;
+      <sup>2</sup>Princeton University &ensp;
+      <sup>3</sup>University of Virginia
+      <br>
+      <small><sup>*</sup>Equal contribution &ensp; <sup>†</sup>Corresponding author</small>
     </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       ABSTRACT
-  ════════════════════════════════════════════════════════ -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Long-horizon tasks are common in real-world robotic deployments, yet failure detection
-              for such tasks remains underexplored. Detecting failures in long-horizon robotic tasks is
-              particularly challenging because failure onset is often ambiguous and dense temporal
-              annotations are typically unavailable. We present <strong>Foresight</strong>, a failure
-              detection framework that monitors manipulation trajectories using latent representations
-              from an action-conditioned world model. Foresight is trained using only final task-level
-              success or failure labels. By leveraging predictive world-model embeddings, our method
-              provides a unified framework for failure detection across different policies. We further
-              use functional conformal prediction (FCP) to calibrate detection thresholds adaptively.
-              We evaluate Foresight with state-of-the-art vision-language-action policies in simulation
-              on LIBERO-Long, ManiSkill-Long, and BEHAVIOR-1K, compare it against state-of-the-art
-              failure detection methods, and validate it on real robots with three long-horizon tasks
-              on ReactorX and one task on Franka arm. Our results suggest that action-conditioned
-              world-model embeddings provide a scalable representation for reliable failure monitoring
-              in long-horizon manipulation.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div>
+      <span class="venue-pill">Under Review</span>
     </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       CONTRIBUTIONS
-  ════════════════════════════════════════════════════════ -->
-  <section class="section section-gap">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Contributions</h2>
-      <ul class="contrib-list">
-        <li>
-          We propose <strong>Foresight</strong>, a failure detection framework for long-horizon
-          robotic manipulation that feeds latent representations from an action-conditioned world
-          model — consisting of a frozen visual encoder and a trained AC predictor — into a causal
-          Transformer failure detector.
-        </li>
-        <li>
-          We show that action-conditioned world model embeddings enable failure detection with
-          supervision from only final task success/failure labels across different
-          vision-language-action policies, and incorporate <strong>functional conformal
-          prediction</strong> to adaptively calibrate detection thresholds for reliable
-          long-horizon failure detection.
-        </li>
-        <li>
-          We provide a comprehensive evaluation across diverse manipulation tasks, policies,
-          robotic embodiments, simulation benchmarks (LIBERO-Long, ManiSkill-Long, BEHAVIOR-1K),
-          and real-world experiments, demonstrating the effectiveness of Foresight against
-          state-of-the-art failure detection methods.
-        </li>
-      </ul>
+    <div class="link-row">
+      <a href="static/pdfs/paper.pdf" target="_blank" class="link-btn">
+        <i class="fas fa-file-pdf"></i> Paper
+      </a>
+      <a href="https://github.com/YOUR_CODE_REPO" target="_blank" class="link-btn">
+        <i class="fab fa-github"></i> Code
+      </a>
+      <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="link-btn">
+        <i class="fab fa-youtube"></i> Video
+      </a>
     </div>
-  </section>
+
+    <div class="kw-row">
+      <span class="kw">Failure Detection</span>
+      <span class="kw">Long-Horizon Manipulation</span>
+      <span class="kw">World Models</span>
+      <span class="kw">Conformal Prediction</span>
+      <span class="kw">V-JEPA 2-AC</span>
+    </div>
+
+  </div>
+</section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       METHOD
-  ════════════════════════════════════════════════════════ -->
-  <section class="section hero is-light section-gap">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Method</h2>
+<!-- ═══════════════════════════════════════════════════════
+     ABSTRACT
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-light">
+  <div class="wrap">
+    <h2 class="sec-title">Abstract</h2>
+    <div class="sec-divider"></div>
+    <p style="font-size:0.97rem;line-height:1.8;color:#333;max-width:820px;margin:0 auto;text-align:justify;">
+      Long-horizon tasks are common in real-world robotic deployments, yet failure detection
+      for such tasks remains underexplored. Detecting failures in long-horizon robotic tasks is
+      particularly challenging because failure onset is often ambiguous and dense temporal
+      annotations are typically unavailable. We present <strong>Foresight</strong>, a failure
+      detection framework that monitors manipulation trajectories using latent representations
+      from an action-conditioned world model. Foresight is trained using only final task-level
+      success or failure labels. By leveraging predictive world-model embeddings, our method
+      provides a unified framework for failure detection across different policies. We further
+      use <strong>functional conformal prediction (FCP)</strong> to calibrate detection thresholds
+      adaptively. We evaluate Foresight with state-of-the-art vision-language-action policies in
+      simulation on LIBERO-Long, ManiSkill-Long, and BEHAVIOR-1K, compare it against
+      state-of-the-art failure detection methods, and validate it on real robots with three
+      long-horizon tasks on ReactorX and one task on Franka arm. Our results suggest that
+      action-conditioned world-model embeddings provide a scalable representation for reliable
+      failure monitoring in long-horizon manipulation.
+    </p>
+  </div>
+</section>
 
-      <!-- Pipeline overview figure -->
-      <div class="has-text-centered" style="margin-bottom:1.5rem;">
-        <!-- PLACEHOLDER: replace with static/images/pipeline.png (Figure 1 from paper) -->
-        <div class="placeholder-box" style="min-height:320px;">
-          <div class="ph-icon"><i class="fas fa-project-diagram"></i></div>
-          <div class="ph-label">Pipeline Overview (Figure 1)</div>
-          <div class="ph-hint">Replace with <code>static/images/pipeline.png</code><br>
-            The three-stage Foresight pipeline diagram from the paper</div>
-        </div>
-        <!-- When ready, use instead:
-        <figure class="image">
-          <img src="static/images/pipeline.png" alt="Foresight pipeline overview">
-        </figure>
-        -->
-        <p class="table-caption" style="margin-top:0.8rem;">
-          <strong>Figure 1 — Foresight pipeline.</strong> (Stage 1) Fine-tune an action-conditioned
-          world model (WM-AC) on robot rollouts. (Stage 2) For each timestep, the world model
-          encodes observations into hidden latents and predicts action-conditioned future latents;
-          these are passed into a causal Transformer to produce per-timestep failure scores.
-          (Stage 3) Functional conformal prediction constructs a time-varying threshold; a rollout
-          is flagged as failure once the score exceeds the threshold.
+
+<!-- ═══════════════════════════════════════════════════════
+     VIDEO PRESENTATION
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <h2 class="sec-title">Video Presentation</h2>
+    <div class="sec-divider"></div>
+    <div class="video-wrap" style="max-width:880px;margin:0 auto;">
+      <iframe
+        src="https://drive.google.com/file/d/1fysYpAlUS85E-9s59V2dO78midyTyE6C/preview"
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CONTRIBUTIONS
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-light">
+  <div class="wrap">
+    <h2 class="sec-title">Contributions</h2>
+    <div class="sec-divider"></div>
+    <ul class="contrib-list" style="max-width:820px;margin:0 auto;">
+      <li>
+        We propose <strong>Foresight</strong>, a failure detection framework for long-horizon
+        robotic manipulation that feeds latent representations from an action-conditioned world
+        model — consisting of a frozen visual encoder and a trained AC predictor — into a
+        causal Transformer failure detector.
+      </li>
+      <li>
+        We show that action-conditioned world model embeddings enable failure detection with
+        supervision from only final task success/failure labels across different VLA policies,
+        and incorporate <strong>functional conformal prediction</strong> to adaptively calibrate
+        detection thresholds for reliable long-horizon failure detection.
+      </li>
+      <li>
+        We provide a comprehensive evaluation across diverse manipulation tasks, policies,
+        robotic embodiments, simulation benchmarks (LIBERO-Long, ManiSkill-Long, BEHAVIOR-1K),
+        and real-world experiments, demonstrating the effectiveness of Foresight against
+        state-of-the-art failure detection methods.
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     METHOD
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-white">
+  <div class="wrap-wide">
+    <h2 class="sec-title">Method</h2>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">
+      Foresight consists of three stages: fine-tuning an action-conditioned world model,
+      training a causal Transformer failure detector, and calibrating with functional
+      conformal prediction for deployment.
+    </p>
+
+    <!-- Method PDF figure -->
+    <div class="pdf-wrap" style="max-width:1000px;margin:0 auto 2rem;">
+      <iframe src="static/pdfs/method_3_stage_training.pdf" height="520px"></iframe>
+    </div>
+
+    <!-- Stage cards -->
+    <div class="stage-grid" style="max-width:1000px;margin:0 auto;">
+      <div class="stage-card s1">
+        <div class="stage-num">Stage 1</div>
+        <div class="stage-title">Fine-tune WM-AC</div>
+        <p>
+          We freeze the visual encoder of the pretrained <strong>V-JEPA 2-AC</strong>
+          (ViT-Giant) and train the action-conditioned predictor from scratch on robot rollouts.
+          The predictor learns to predict future latent states conditioned on the policy's
+          action chunks.
         </p>
       </div>
-
-      <!-- Three stage cards -->
-      <div class="stage-cards">
-        <div class="stage-card s1">
-          <div class="stage-num">Stage 1</div>
-          <div class="stage-title">Fine-tune WM-AC</div>
-          <p>
-            We freeze the visual encoder of the pretrained
-            <strong>V-JEPA 2-AC</strong> (ViT-Giant) and train the action-conditioned predictor
-            from scratch on robot rollouts from the target benchmark. The predictor learns to
-            predict future latent states conditioned on the policy's action chunks.
-          </p>
-        </div>
-        <div class="stage-card s2">
-          <div class="stage-num">Stage 2</div>
-          <div class="stage-title">Train Failure Detector</div>
-          <p>
-            At each replanning step, the world model produces a <em>hidden latent</em>
-            z<sup>h</sup> (what is observed) and a <em>predicted latent</em>
-            z<sup>p</sup> (what is expected under the next action). A causal Transformer
-            aggregates these tokens over time and outputs a per-step failure score
-            s<sub>t</sub> ∈ [0,1], trained using only trajectory-level binary labels.
-          </p>
-        </div>
-        <div class="stage-card s3">
-          <div class="stage-num">Stage 3</div>
-          <div class="stage-title">Calibrate &amp; Deploy</div>
-          <p>
-            <strong>Functional conformal prediction (FCP)</strong> constructs a time-varying
-            threshold δ<sub>t</sub> from held-out successful rollouts, guaranteeing the
-            false positive rate is controlled at level α. A failure alarm fires the first
-            time s<sub>t</sub> ≥ δ<sub>t</sub>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       BENCHMARKS OVERVIEW
-  ════════════════════════════════════════════════════════ -->
-  <section class="section section-gap">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Evaluation Benchmarks</h2>
-      <p class="has-text-centered" style="margin-bottom:1.2rem; color:#555;">
-        We evaluate across four settings spanning short to extremely long horizons,
-        multiple robot embodiments, and both simulation and real-world deployments.
-      </p>
-
-      <div class="benchmark-grid">
-        <div class="benchmark-card libero">
-          <div class="bcard-header">LIBERO-Long</div>
-          <div class="bcard-body">
-            <span><strong>Tasks:</strong> 10 tabletop tasks</span>
-            <span><strong>Robot:</strong> Franka</span>
-            <span><strong>Avg. steps:</strong> 253</span>
-            <span><strong>Policies:</strong> OpenVLA, π₀-FAST</span>
-          </div>
-        </div>
-        <div class="benchmark-card manis">
-          <div class="bcard-header">ManiSkill-Long</div>
-          <div class="bcard-body">
-            <span><strong>Tasks:</strong> 4 compositional tasks</span>
-            <span><strong>Robot:</strong> Franka</span>
-            <span><strong>Avg. steps:</strong> 1,484</span>
-            <span><strong>Policies:</strong> π₀-FAST</span>
-          </div>
-        </div>
-        <div class="benchmark-card behav">
-          <div class="bcard-header">BEHAVIOR-1K</div>
-          <div class="bcard-body">
-            <span><strong>Tasks:</strong> 4 household tasks</span>
-            <span><strong>Robot:</strong> R1Pro (mobile)</span>
-            <span><strong>Avg. steps:</strong> 8,557</span>
-            <span><strong>Policies:</strong> revised π₀.₅</span>
-          </div>
-        </div>
-        <div class="benchmark-card real">
-          <div class="bcard-header">Real-World Exp.</div>
-          <div class="bcard-body">
-            <span><strong>Tasks:</strong> 4 tasks</span>
-            <span><strong>Robots:</strong> ReactorX, Franka</span>
-            <span><strong>Avg. steps:</strong> 1,175</span>
-            <span><strong>Policies:</strong> ACT, π₀.₅, SmolVLA, GR00T N1.5</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Benchmark image grid placeholder -->
-      <div style="margin-top:2rem;">
-        <!-- PLACEHOLDER: replace with static/images/benchmark_overview.png (Figure 3) -->
-        <div class="placeholder-box" style="min-height:280px;">
-          <div class="ph-icon"><i class="fas fa-th"></i></div>
-          <div class="ph-label">Benchmark Tasks Overview (Figure 3)</div>
-          <div class="ph-hint">Replace with <code>static/images/benchmark_overview.png</code><br>
-            Grid showing example frames from all benchmark tasks</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       VIDEO PRESENTATION (main project video)
-  ════════════════════════════════════════════════════════ -->
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Video Presentation</h2>
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <!-- PLACEHOLDER: replace YOUR_VIDEO_ID with actual YouTube video ID -->
-            <div class="placeholder-box" style="min-height:360px;">
-              <div class="ph-icon"><i class="fab fa-youtube"></i></div>
-              <div class="ph-label">Project Video</div>
-              <div class="ph-hint">Replace YOUR_VIDEO_ID below with actual YouTube video ID</div>
-            </div>
-            <!-- When ready, uncomment:
-            <div class="publication-video">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-                      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       REAL-WORLD SETUP PHOTOS
-  ════════════════════════════════════════════════════════ -->
-  <section class="section section-gap">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Real-Robot Setup</h2>
-      <div class="columns">
-        <div class="column">
-          <!-- PLACEHOLDER: replace with static/images/setup_reactorx.jpg -->
-          <div class="placeholder-box" style="min-height:220px;">
-            <div class="ph-icon"><i class="fas fa-camera"></i></div>
-            <div class="ph-label">ReactorX-200 Setup</div>
-            <div class="ph-hint"><code>static/images/setup_reactorx.jpg</code><br>
-              Left half of Figure 2 from paper</div>
-          </div>
-          <p class="has-text-centered" style="margin-top:0.5rem; font-size:0.88rem;">
-            <strong>ReactorX-200</strong> arm with RealSense D435 camera
-            for 3 tabletop arrangement tasks.
-          </p>
-        </div>
-        <div class="column">
-          <!-- PLACEHOLDER: replace with static/images/setup_franka.jpg -->
-          <div class="placeholder-box" style="min-height:220px;">
-            <div class="ph-icon"><i class="fas fa-camera"></i></div>
-            <div class="ph-label">Franka Emika Setup</div>
-            <div class="ph-hint"><code>static/images/setup_franka.jpg</code><br>
-              Right half of Figure 2 from paper</div>
-          </div>
-          <p class="has-text-centered" style="margin-top:0.5rem; font-size:0.88rem;">
-            <strong>Franka Emika Panda</strong> with RealSense D435 camera
-            for toy pick-up task with GR00T N1.5.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       REAL-ROBOT DEMO VIDEOS (carousel)
-  ════════════════════════════════════════════════════════ -->
-  <section class="hero is-small section-gap">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Real-Robot Demonstrations</h2>
-        <p style="margin-bottom:1rem; color:#555;">
-          Foresight monitors real ReactorX and Franka rollouts in real time.
-          The failure score (blue) rises when execution diverges from expected dynamics;
-          an alarm fires once it exceeds the conformal threshold (red dashed).
+      <div class="stage-card s2">
+        <div class="stage-num">Stage 2</div>
+        <div class="stage-title">Train Failure Detector</div>
+        <p>
+          At each replanning step the world model produces a <em>hidden latent</em>
+          z<sup>h</sup> (current observation) and a <em>predicted latent</em>
+          z<sup>p</sup> (expected under the next action chunk). A causal Transformer
+          aggregates these over time, outputting a per-step failure score s<sub>t</sub>
+          trained on trajectory-level labels only.
         </p>
+      </div>
+      <div class="stage-card s3">
+        <div class="stage-num">Stage 3</div>
+        <div class="stage-title">Calibrate &amp; Deploy</div>
+        <p>
+          <strong>Functional conformal prediction (FCP)</strong> constructs a time-varying
+          threshold δ<sub>t</sub> from held-out successful rollouts, guaranteeing the
+          false positive rate is controlled at level α. A failure alarm fires the first
+          time s<sub>t</sub> ≥ δ<sub>t</sub>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div id="real-robot-carousel" class="carousel results-carousel">
 
-          <div class="item item-rrv1">
-            <!-- PLACEHOLDER: replace with static/videos/real_act_banana.mp4 -->
-            <div class="placeholder-box" style="min-height:260px;">
-              <div class="ph-icon"><i class="fas fa-robot"></i></div>
-              <div class="ph-label">ReactorX / ACT — Pick Banana &amp; Lion Toy</div>
-              <div class="ph-hint"><code>static/videos/real_act_banana.mp4</code></div>
-            </div>
-            <!-- When ready:
-            <video poster="static/images/real_act_banana_poster.jpg" controls muted loop preload="metadata">
-              <source src="static/videos/real_act_banana.mp4" type="video/mp4">
-            </video>
-            -->
-            <h2 class="subtitle has-text-centered" style="margin-top:0.5rem;">
-              ReactorX / ACT &mdash; <em>Pick banana and lion toy into basket.</em>
-              Foresight raises alarm when banana grasp fails.
-            </h2>
-          </div>
+<!-- ═══════════════════════════════════════════════════════
+     BENCHMARKS
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-light">
+  <div class="wrap-wide">
+    <h2 class="sec-title">Evaluation Benchmarks</h2>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">
+      We evaluate across four settings spanning 253 to 8,557 simulation steps, multiple
+      robot embodiments, and both simulation and real-world deployments.
+    </p>
 
-          <div class="item item-rrv2">
-            <!-- PLACEHOLDER: replace with static/videos/real_act_arrange.mp4 -->
-            <div class="placeholder-box" style="min-height:260px;">
-              <div class="ph-icon"><i class="fas fa-robot"></i></div>
-              <div class="ph-label">ReactorX / ACT — Arrange Desktop</div>
-              <div class="ph-hint"><code>static/videos/real_act_arrange.mp4</code></div>
-            </div>
-            <h2 class="subtitle has-text-centered" style="margin-top:0.5rem;">
-              ReactorX / ACT &mdash; <em>Put skin cream, praline, and bottle into basket.</em>
-            </h2>
-          </div>
-
-          <div class="item item-rrv3">
-            <!-- PLACEHOLDER: replace with static/videos/real_pi05_banana.mp4 -->
-            <div class="placeholder-box" style="min-height:260px;">
-              <div class="ph-icon"><i class="fas fa-robot"></i></div>
-              <div class="ph-label">ReactorX / π₀.₅ — Pick Banana &amp; Lion Toy</div>
-              <div class="ph-hint"><code>static/videos/real_pi05_banana.mp4</code></div>
-            </div>
-            <h2 class="subtitle has-text-centered" style="margin-top:0.5rem;">
-              ReactorX / π₀.₅ &mdash; Cross-policy: detector trained on ACT transfers to π₀.₅.
-            </h2>
-          </div>
-
-          <div class="item item-rrv4">
-            <!-- PLACEHOLDER: replace with static/videos/real_franka_groot.mp4 -->
-            <div class="placeholder-box" style="min-height:260px;">
-              <div class="ph-icon"><i class="fas fa-robot"></i></div>
-              <div class="ph-label">Franka / GR00T N1.5 — Pick 3 Toys</div>
-              <div class="ph-hint"><code>static/videos/real_franka_groot.mp4</code></div>
-            </div>
-            <h2 class="subtitle has-text-centered" style="margin-top:0.5rem;">
-              Franka / GR00T N1.5 &mdash; Cross-embodiment generalization. ROC-AUC: <strong>0.89</strong>.
-            </h2>
-          </div>
-
+    <!-- 4-column stat cards — colors from task_overview_all.png side bars -->
+    <div class="bench-grid" style="max-width:1000px;margin:0 auto 2.5rem;">
+      <div class="bench-card libero">
+        <div class="bench-head">LIBERO-Long</div>
+        <div class="bench-body">
+          <span><strong>Tasks:</strong> 10 tabletop tasks</span>
+          <span><strong>Robot:</strong> Franka</span>
+          <span><strong>Avg. steps:</strong> 253</span>
+          <span><strong>Policies:</strong> OpenVLA, π₀-FAST</span>
+        </div>
+      </div>
+      <div class="bench-card manis">
+        <div class="bench-head">ManiSkill-Long</div>
+        <div class="bench-body">
+          <span><strong>Tasks:</strong> 4 compositional tasks</span>
+          <span><strong>Robot:</strong> Franka</span>
+          <span><strong>Avg. steps:</strong> 1,484</span>
+          <span><strong>Policies:</strong> π₀-FAST</span>
+        </div>
+      </div>
+      <div class="bench-card b1k">
+        <div class="bench-head">BEHAVIOR-1K</div>
+        <div class="bench-body">
+          <span><strong>Tasks:</strong> 4 household tasks</span>
+          <span><strong>Robot:</strong> R1Pro (mobile)</span>
+          <span><strong>Avg. steps:</strong> 8,557</span>
+          <span><strong>Policies:</strong> revised π₀.₅</span>
+        </div>
+      </div>
+      <div class="bench-card real">
+        <div class="bench-head">Real-World Exp.</div>
+        <div class="bench-body">
+          <span><strong>Tasks:</strong> 4 tasks</span>
+          <span><strong>Robots:</strong> ReactorX, Franka</span>
+          <span><strong>Avg. steps:</strong> 1,175</span>
+          <span><strong>Policies:</strong> ACT, π₀.₅, SmolVLA, GR00T N1.5</span>
         </div>
       </div>
     </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       QUALITATIVE RESULTS
-  ════════════════════════════════════════════════════════ -->
-  <section class="section hero is-light section-gap">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-      <p class="has-text-centered" style="margin-bottom:1.5rem; color:#555;">
-        Each panel shows the failure score s<sub>t</sub> (blue) and the FCP threshold
-        δ<sub>t</sub> (red dashed). Frame borders are
-        <span style="color:#2e7d32; font-weight:600;">green</span> when safe and
-        <span style="color:#c62828; font-weight:600;">red</span> once an alarm fires.
-      </p>
-
-      <!-- LIBERO-Long -->
-      <h3 class="title is-5" style="margin-bottom:0.8rem;">LIBERO-Long</h3>
-      <div class="qual-pair">
-        <div>
-          <span class="qual-label tn">True Negative — No Alarm</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_libero_tn.png (Figure 8) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 8 — LIBERO-Long True Negative</div>
-            <div class="ph-hint"><code>static/images/qual_libero_tn.png</code></div>
-          </div>
-          <p class="caption">Task 0: "Put both alphabet soup and tomato sauce in the basket."
-            Score stays below threshold throughout — no false alarm.</p>
-        </div>
-        <div>
-          <span class="qual-label tp">True Positive — Alarm Raised</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_libero_tp.png (Figure 9) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 9 — LIBERO-Long True Positive</div>
-            <div class="ph-hint"><code>static/images/qual_libero_tp.png</code></div>
-          </div>
-          <p class="caption">Task 5: "Pick up the book and place in the caddy."
-            Robot drops the book; Foresight raises alarm before episode terminates.</p>
-        </div>
-      </div>
-
-      <!-- ManiSkill-Long -->
-      <h3 class="title is-5" style="margin-bottom:0.8rem; margin-top:1.5rem;">ManiSkill-Long</h3>
-      <div class="qual-pair">
-        <div>
-          <span class="qual-label tn">True Negative — No Alarm</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_manis_tn.png (Figure 10) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 10 — ManiSkill-Long True Negative</div>
-            <div class="ph-hint"><code>static/images/qual_manis_tn.png</code></div>
-          </div>
-          <p class="caption">Task 2 (Cubes into Bowl): Successful rollout; no alarm raised.</p>
-        </div>
-        <div>
-          <span class="qual-label tp">True Positive — Alarm Raised</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_manis_tp.png (Figure 11) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 11 — ManiSkill-Long True Positive</div>
-            <div class="ph-hint"><code>static/images/qual_manis_tp.png</code></div>
-          </div>
-          <p class="caption">Task 3 (Stack 3 Cubes): Robot fails to stack red cube on blue cube;
-            Foresight detects the deviation early.</p>
-        </div>
-      </div>
-
-      <!-- BEHAVIOR-1K -->
-      <h3 class="title is-5" style="margin-bottom:0.8rem; margin-top:1.5rem;">BEHAVIOR-1K</h3>
-      <div class="qual-pair">
-        <div>
-          <span class="qual-label tn">True Negative — No Alarm</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_behav_tn.png (Figure 12) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 12 — BEHAVIOR-1K True Negative</div>
-            <div class="ph-hint"><code>static/images/qual_behav_tn.png</code></div>
-          </div>
-          <p class="caption">Setting Mousetraps (13,657 steps avg): Successful long-horizon rollout;
-            score stays below threshold throughout the entire trajectory.</p>
-        </div>
-        <div>
-          <span class="qual-label tp">True Positive — Alarm Raised</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_behav_tp.png (Figure 13) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 13 — BEHAVIOR-1K True Positive</div>
-            <div class="ph-hint"><code>static/images/qual_behav_tp.png</code></div>
-          </div>
-          <p class="caption">Cook Hot Dogs: Robot fails to grasp the first hot dog;
-            Foresight raises alarm early in the trajectory.</p>
-        </div>
-      </div>
-
-      <!-- Real-World -->
-      <h3 class="title is-5" style="margin-bottom:0.8rem; margin-top:1.5rem;">Real-World (ReactorX / ACT)</h3>
-      <div class="qual-pair">
-        <div>
-          <span class="qual-label tn">True Negative — No Alarm</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_real_tn.png (Figure 14) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 14 — Real-World True Negative</div>
-            <div class="ph-hint"><code>static/images/qual_real_tn.png</code></div>
-          </div>
-          <p class="caption">Pick banana &amp; lion toy: Successful real-robot episode; no false alarm raised.</p>
-        </div>
-        <div>
-          <span class="qual-label tp">True Positive — Alarm Raised</span>
-          <!-- PLACEHOLDER: replace with static/images/qual_real_tp.png (Figure 15) -->
-          <div class="placeholder-box" style="min-height:200px;">
-            <div class="ph-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="ph-label">Figure 15 — Real-World True Positive</div>
-            <div class="ph-hint"><code>static/images/qual_real_tp.png</code></div>
-          </div>
-          <p class="caption">Pick banana &amp; lion toy: Robot fails to pick up banana;
-            Foresight raises alarm mid-execution.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       QUANTITATIVE RESULTS — Simulation
-  ════════════════════════════════════════════════════════ -->
-  <section class="section section-gap">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
-
-      <h3 class="title is-5">Simulation Benchmarks</h3>
-      <div class="table-scroll">
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th rowspan="2" class="method-name" style="text-align:left;">Method</th>
-              <th colspan="2">LIBERO-Long</th>
-              <th colspan="2">ManiSkill-Long</th>
-              <th colspan="2">BEHAVIOR-1K</th>
-            </tr>
-            <tr>
-              <th>ROC-AUC</th><th>BalAcc</th>
-              <th>ROC-AUC</th><th>BalAcc</th>
-              <th>ROC-AUC</th><th>BalAcc</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="divider"><td colspan="7">Baselines</td></tr>
-            <tr>
-              <td class="method-name">FAIL-Detect</td>
-              <td class="second">0.90 ± 0.02</td><td>0.82 ± 0.06</td>
-              <td>0.71 ± 0.02</td><td>0.50 ± 0.01</td>
-              <td>0.54 ± 0.06</td><td>0.52 ± 0.01</td>
-            </tr>
-            <tr>
-              <td class="method-name">SAFE-MLP</td>
-              <td>0.52 ± 0.01</td><td>0.50 ± 0.01</td>
-              <td>0.61 ± 0.02</td><td>0.53 ± 0.02</td>
-              <td>0.50 ± 0.00</td><td>0.50 ± 0.00</td>
-            </tr>
-            <tr>
-              <td class="method-name">SAFE-LSTM</td>
-              <td class="best">0.91 ± 0.02</td><td>0.88 ± 0.02</td>
-              <td>0.82 ± 0.01</td><td>0.74 ± 0.01</td>
-              <td>0.72 ± 0.02</td><td>0.64 ± 0.05</td>
-            </tr>
-            <tr>
-              <td class="method-name">RND</td>
-              <td class="second">0.90 ± 0.02</td><td>0.83 ± 0.04</td>
-              <td class="second">0.83 ± 0.02</td><td>0.68 ± 0.18</td>
-              <td>0.65 ± 0.01</td><td>0.54 ± 0.04</td>
-            </tr>
-            <tr>
-              <td class="method-name">Gauge</td>
-              <td>0.88 ± 0.01</td><td>0.81 ± 0.06</td>
-              <td>0.80 ± 0.02</td><td>0.77 ± 0.03</td>
-              <td>0.61 ± 0.03</td><td>0.60 ± 0.03</td>
-            </tr>
-            <tr class="divider"><td colspan="7">Foresight (ours)</td></tr>
-            <tr>
-              <td class="method-name">Foresight-MLP</td>
-              <td>0.88 ± 0.01</td><td>0.80 ± 0.02</td>
-              <td>0.70 ± 0.03</td><td>0.71 ± 0.18</td>
-              <td>0.73 ± 0.02</td><td>0.56 ± 0.03</td>
-            </tr>
-            <tr>
-              <td class="method-name">Foresight-LSTM</td>
-              <td>0.86 ± 0.02</td><td class="second">0.89 ± 0.03</td>
-              <td>0.76 ± 0.00</td><td class="second">0.79 ± 0.16</td>
-              <td class="second">0.75 ± 0.04</td><td class="second">0.75 ± 0.09</td>
-            </tr>
-            <tr>
-              <td class="method-name">Foresight-Transformer</td>
-              <td>0.89 ± 0.02</td><td class="best">0.94 ± 0.06</td>
-              <td class="best">0.84 ± 0.03</td><td class="best">0.80 ± 0.10</td>
-              <td class="best">0.76 ± 0.02</td><td class="best">0.78 ± 0.02</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="table-caption">
-        <strong>Table 2</strong> — Rollout-level failure detection results.
-        <span class="best" style="font-weight:700;">Bold blue</span> = best result;
-        <span class="second" style="font-weight:600;">Orange</span> = second-best.
-        LIBERO-Long and ManiSkill-Long use π₀-FAST rollouts; BEHAVIOR-1K uses revised π₀.₅.
-        Foresight-Transformer achieves the best calibrated balanced accuracy on all three benchmarks,
-        with a <strong>+0.14 BalAcc gain</strong> on BEHAVIOR-1K (the longest-horizon setting) over the best baseline.
-      </p>
-
-      <!-- Real-World Results -->
-      <h3 class="title is-5" style="margin-top:2.5rem;">Real-World Experiments</h3>
-      <div class="table-scroll">
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th class="method-name" style="text-align:left;">Method</th>
-              <th>ReactorX / ACT</th>
-              <th>ReactorX / π₀.₅</th>
-              <th>ReactorX / SmolVLA</th>
-              <th>Franka / GR00T N1.5</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="divider"><td colspan="5">Baselines (ROC-AUC)</td></tr>
-            <tr>
-              <td class="method-name">FAIL-Detect</td>
-              <td>0.85 ± 0.07</td><td>0.64 ± 0.06</td>
-              <td>0.71 ± 0.05</td><td class="second">0.88 ± 0.05</td>
-            </tr>
-            <tr>
-              <td class="method-name">SAFE-MLP</td>
-              <td class="second">0.89 ± 0.05</td><td>0.66 ± 0.36</td>
-              <td>0.64 ± 0.19</td><td>0.50 ± 0.10</td>
-            </tr>
-            <tr>
-              <td class="method-name">SAFE-LSTM</td>
-              <td>0.70 ± 0.07</td><td>0.75 ± 0.14</td>
-              <td>0.43 ± 0.10</td><td>0.79 ± 0.10</td>
-            </tr>
-            <tr>
-              <td class="method-name">RND</td>
-              <td>0.86 ± 0.04</td><td>0.78 ± 0.06</td>
-              <td class="best">0.82 ± 0.03</td><td>0.64 ± 0.15</td>
-            </tr>
-            <tr class="divider"><td colspan="5">Foresight (ours)</td></tr>
-            <tr>
-              <td class="method-name">Foresight-MLP</td>
-              <td>0.50 ± 0.00</td><td>0.55 ± 0.05</td>
-              <td>0.53 ± 0.22</td><td>0.59 ± 0.20</td>
-            </tr>
-            <tr>
-              <td class="method-name">Foresight-LSTM</td>
-              <td>0.85 ± 0.05</td><td class="second">0.85 ± 0.03</td>
-              <td>0.64 ± 0.08</td><td>0.66 ± 0.08</td>
-            </tr>
-            <tr>
-              <td class="method-name">Foresight-Transformer</td>
-              <td class="best">0.93 ± 0.01</td><td class="best">0.87 ± 0.03</td>
-              <td class="second">0.79 ± 0.09</td><td class="best">0.89 ± 0.10</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="table-caption">
-        <strong>Table 3</strong> — Real-world ROC-AUC results.
-        Foresight-Transformer achieves the best ROC-AUC in three of four settings and is the only
-        method that consistently transfers across robot embodiments (ReactorX → Franka).
+    <!-- Task overview image -->
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <img src="static/images/task_overview_all.png"
+           alt="Overview of all benchmark tasks"
+           style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow);">
+      <p class="tbl-caption" style="margin-top:0.8rem;">
+        Task snapshots across all four evaluation benchmarks. Left color bars match the
+        benchmark card colors above.
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       CROSS-POLICY GENERALIZATION
-  ════════════════════════════════════════════════════════ -->
-  <section class="section hero is-light section-gap">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Cross-Policy Generalization</h2>
-      <p class="has-text-centered" style="margin-bottom:1.2rem; color:#555;">
-        Can a detector trained on one policy distribution detect failures in rollouts
-        from a different policy? This evaluates whether Foresight captures
-        <em>execution-level</em> failure cues rather than policy-specific artifacts.
-      </p>
+<!-- ═══════════════════════════════════════════════════════
+     QUALITATIVE RESULTS
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-white">
+  <div class="wrap-wide">
+    <h2 class="sec-title">Qualitative Results</h2>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">
+      Each video shows the failure score s<sub>t</sub> (blue) against the FCP threshold
+      δ<sub>t</sub> (red dashed). Frame borders are
+      <span style="color:#166534;font-weight:600;">green</span> when safe and
+      <span style="color:#991b1b;font-weight:600;">red</span> once the alarm fires.
+      We show one true negative and one true positive per benchmark.
+    </p>
 
-      <div class="table-scroll">
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th>Benchmark</th>
-              <th>Train distribution</th>
-              <th>Test distribution</th>
-              <th>ROC-AUC</th>
-              <th>BalAcc</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>LIBERO-Long</td>
-              <td>π₀-FAST rollouts</td>
-              <td>OpenVLA rollouts</td>
-              <td>0.64 ± 0.02</td><td class="best">0.90 ± 0.01</td>
-            </tr>
-            <tr>
-              <td>Real-World</td>
-              <td>π₀.₅ rollouts</td>
-              <td>ACT rollouts</td>
-              <td class="best">0.94 ± 0.02</td><td>0.82 ± 0.08</td>
-            </tr>
-            <tr>
-              <td>Real-World</td>
-              <td>ACT rollouts</td>
-              <td>π₀.₅ rollouts</td>
-              <td>0.56 ± 0.07</td><td>0.52 ± 0.03</td>
-            </tr>
-            <tr>
-              <td>Real-World</td>
-              <td>SmolVLA rollouts</td>
-              <td>ACT rollouts</td>
-              <td class="second">0.92 ± 0.04</td><td>0.73 ± 0.07</td>
-            </tr>
-            <tr>
-              <td>Real-World</td>
-              <td>π₀.₅ rollouts</td>
-              <td>SmolVLA rollouts</td>
-              <td>0.67 ± 0.02</td><td>0.62 ± 0.01</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- LIBERO-Long -->
+    <h3 class="bench-section-title libero" style="max-width:1000px;margin-left:auto;margin-right:auto;">
+      LIBERO-Long
+    </h3>
+    <div class="qual-grid" style="max-width:1000px;margin:0 auto 1rem;">
+      <div class="qual-block">
+        <span class="qual-label ql-tn"><i class="fas fa-check-circle"></i> True Negative — No Alarm</span>
+        <div class="qual-video">
+          <video controls preload="metadata" muted loop>
+            <source src="static/videos/libero_tn_task0_ep1_video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="qual-caption">
+          Task 0: "Put both alphabet soup and tomato sauce in the basket."
+          Score stays below the threshold throughout — no false alarm raised.
+        </p>
       </div>
-      <p class="table-caption">
-        <strong>Table 4</strong> — Cross-policy transfer.
-        Transfer is feasible but asymmetric: π₀.₅ → ACT works well (0.94 ROC-AUC) because
-        π₀.₅ rollouts contain broader behaviors including recovery trajectories, whereas
-        ACT → π₀.₅ is harder (0.56) as ACT-trained detectors have not seen recovery behavior.
-      </p>
+      <div class="qual-block">
+        <span class="qual-label ql-tp"><i class="fas fa-exclamation-circle"></i> True Positive — Alarm Raised</span>
+        <div class="qual-video">
+          <video controls preload="metadata" muted loop>
+            <source src="static/videos/libero_tp_05_task5_ep2_video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="qual-caption">
+          Task 5: "Pick up the book and place it in the caddy."
+          Robot drops the book mid-execution; Foresight raises an alarm before episode terminates.
+        </p>
+      </div>
     </div>
-  </section>
+
+    <!-- ManiSkill-Long -->
+    <h3 class="bench-section-title manis" style="max-width:1000px;margin-left:auto;margin-right:auto;">
+      ManiSkill-Long
+    </h3>
+    <div class="qual-grid" style="max-width:1000px;margin:0 auto 1rem;">
+      <div class="qual-block">
+        <span class="qual-label ql-tn"><i class="fas fa-check-circle"></i> True Negative — No Alarm</span>
+        <div class="qual-video">
+          <video controls preload="metadata" muted loop>
+            <source src="static/videos/maniskill_tn_task2_ep4_video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="qual-caption">
+          Task 2 (Cubes into Bowl): Successful rollout — score stays below threshold.
+        </p>
+      </div>
+      <div class="qual-block">
+        <span class="qual-label ql-tp"><i class="fas fa-exclamation-circle"></i> True Positive — Alarm Raised</span>
+        <div class="qual-video">
+          <video controls preload="metadata" muted loop>
+            <source src="static/videos/maniskill_tp_02_task3_ep18_video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="qual-caption">
+          Task 3 (Stack 3 Cubes): Robot fails to stack the red cube onto the blue cube;
+          Foresight detects the deviation early.
+        </p>
+      </div>
+    </div>
+
+    <!-- BEHAVIOR-1K -->
+    <h3 class="bench-section-title b1k" style="max-width:1000px;margin-left:auto;margin-right:auto;">
+      BEHAVIOR-1K
+    </h3>
+    <div class="qual-grid" style="max-width:1000px;margin:0 auto 0;">
+      <div class="qual-block">
+        <span class="qual-label ql-tn"><i class="fas fa-check-circle"></i> True Negative — No Alarm</span>
+        <div class="qual-video">
+          <video controls preload="metadata" muted loop>
+            <source src="static/videos/b1k_tn_task3_ep354_video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="qual-caption">
+          Setting Mousetraps (~13,657 steps): Successful long-horizon rollout across the
+          full trajectory without any false alarm.
+        </p>
+      </div>
+      <div class="qual-block">
+        <span class="qual-label ql-tp"><i class="fas fa-exclamation-circle"></i> True Positive — Alarm Raised</span>
+        <div class="qual-video">
+          <video controls preload="metadata" muted loop>
+            <source src="static/videos/b1k_tp_10_task47_ep136_video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="qual-caption">
+          Cook Hot Dogs: Robot fails to grasp the first hot dog; Foresight raises an
+          alarm early in the trajectory.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       BIBTEX
-  ════════════════════════════════════════════════════════ -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
+<!-- ═══════════════════════════════════════════════════════
+     QUANTITATIVE RESULTS
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-light">
+  <div class="wrap-wide">
+    <h2 class="sec-title">Quantitative Results</h2>
+    <div class="sec-divider"></div>
+
+    <!-- Simulation table -->
+    <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:0.8rem;">Simulation Benchmarks</h3>
+    <div class="tbl-wrap">
+      <table class="rtbl">
+        <thead>
+          <tr>
+            <th rowspan="2" class="mn" style="text-align:left;min-width:160px;">Method</th>
+            <th colspan="2" style="border-left:3px solid var(--color-libero);">LIBERO-Long</th>
+            <th colspan="2" style="border-left:3px solid var(--color-maniskill);">ManiSkill-Long</th>
+            <th colspan="2" style="border-left:3px solid var(--color-b1k);">BEHAVIOR-1K</th>
+          </tr>
+          <tr>
+            <th style="border-left:3px solid var(--color-libero);">ROC-AUC</th><th>BalAcc</th>
+            <th style="border-left:3px solid var(--color-maniskill);">ROC-AUC</th><th>BalAcc</th>
+            <th style="border-left:3px solid var(--color-b1k);">ROC-AUC</th><th>BalAcc</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="sep"><td colspan="7">Baselines</td></tr>
+          <tr>
+            <td class="mn">FAIL-Detect</td>
+            <td class="second">0.90 ± 0.02</td><td>0.82 ± 0.06</td>
+            <td>0.71 ± 0.02</td><td>0.50 ± 0.01</td>
+            <td>0.54 ± 0.06</td><td>0.52 ± 0.01</td>
+          </tr>
+          <tr>
+            <td class="mn">SAFE-MLP</td>
+            <td>0.52 ± 0.01</td><td>0.50 ± 0.01</td>
+            <td>0.61 ± 0.02</td><td>0.53 ± 0.02</td>
+            <td>0.50 ± 0.00</td><td>0.50 ± 0.00</td>
+          </tr>
+          <tr>
+            <td class="mn">SAFE-LSTM</td>
+            <td class="best">0.91 ± 0.02</td><td>0.88 ± 0.02</td>
+            <td>0.82 ± 0.01</td><td>0.74 ± 0.01</td>
+            <td>0.72 ± 0.02</td><td>0.64 ± 0.05</td>
+          </tr>
+          <tr>
+            <td class="mn">RND</td>
+            <td class="second">0.90 ± 0.02</td><td>0.83 ± 0.04</td>
+            <td class="second">0.83 ± 0.02</td><td>0.68 ± 0.18</td>
+            <td>0.65 ± 0.01</td><td>0.54 ± 0.04</td>
+          </tr>
+          <tr>
+            <td class="mn">Gauge</td>
+            <td>0.88 ± 0.01</td><td>0.81 ± 0.06</td>
+            <td>0.80 ± 0.02</td><td>0.77 ± 0.03</td>
+            <td>0.61 ± 0.03</td><td>0.60 ± 0.03</td>
+          </tr>
+          <tr class="sep"><td colspan="7">Foresight (ours)</td></tr>
+          <tr>
+            <td class="mn">Foresight-MLP</td>
+            <td>0.88 ± 0.01</td><td>0.80 ± 0.02</td>
+            <td>0.70 ± 0.03</td><td>0.71 ± 0.18</td>
+            <td>0.73 ± 0.02</td><td>0.56 ± 0.03</td>
+          </tr>
+          <tr>
+            <td class="mn">Foresight-LSTM</td>
+            <td>0.86 ± 0.02</td><td class="second">0.89 ± 0.03</td>
+            <td>0.76 ± 0.00</td><td class="second">0.79 ± 0.16</td>
+            <td class="second">0.75 ± 0.04</td><td class="second">0.75 ± 0.09</td>
+          </tr>
+          <tr>
+            <td class="mn">Foresight-Transformer</td>
+            <td>0.89 ± 0.02</td><td class="best">0.94 ± 0.06</td>
+            <td class="best">0.84 ± 0.03</td><td class="best">0.80 ± 0.10</td>
+            <td class="best">0.76 ± 0.02</td><td class="best">0.78 ± 0.02</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-caption">
+      <strong>Table 2</strong> — Rollout-level results. <span class="best">Bold blue</span> = best;
+      <span class="second">orange</span> = second-best. Foresight-Transformer achieves best
+      balanced accuracy on all three benchmarks, with a <strong>+0.14 BalAcc gain</strong>
+      on BEHAVIOR-1K over the best baseline.
+    </p>
+
+    <!-- Real-world table -->
+    <h3 style="font-size:1.05rem;font-weight:700;margin:2.5rem 0 0.8rem;">Real-World Experiments</h3>
+    <div class="tbl-wrap">
+      <table class="rtbl">
+        <thead>
+          <tr>
+            <th class="mn" style="text-align:left;min-width:160px;">Method</th>
+            <th>ReactorX / ACT</th>
+            <th>ReactorX / π₀.₅</th>
+            <th>ReactorX / SmolVLA</th>
+            <th>Franka / GR00T N1.5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="sep"><td colspan="5">Baselines (ROC-AUC)</td></tr>
+          <tr>
+            <td class="mn">FAIL-Detect</td>
+            <td>0.85 ± 0.07</td><td>0.64 ± 0.06</td>
+            <td>0.71 ± 0.05</td><td class="second">0.88 ± 0.05</td>
+          </tr>
+          <tr>
+            <td class="mn">SAFE-MLP</td>
+            <td class="second">0.89 ± 0.05</td><td>0.66 ± 0.36</td>
+            <td>0.64 ± 0.19</td><td>0.50 ± 0.10</td>
+          </tr>
+          <tr>
+            <td class="mn">SAFE-LSTM</td>
+            <td>0.70 ± 0.07</td><td>0.75 ± 0.14</td>
+            <td>0.43 ± 0.10</td><td>0.79 ± 0.10</td>
+          </tr>
+          <tr>
+            <td class="mn">RND</td>
+            <td>0.86 ± 0.04</td><td>0.78 ± 0.06</td>
+            <td class="best">0.82 ± 0.03</td><td>0.64 ± 0.15</td>
+          </tr>
+          <tr class="sep"><td colspan="5">Foresight (ours)</td></tr>
+          <tr>
+            <td class="mn">Foresight-MLP</td>
+            <td>0.50 ± 0.00</td><td>0.55 ± 0.05</td>
+            <td>0.53 ± 0.22</td><td>0.59 ± 0.20</td>
+          </tr>
+          <tr>
+            <td class="mn">Foresight-LSTM</td>
+            <td>0.85 ± 0.05</td><td class="second">0.85 ± 0.03</td>
+            <td>0.64 ± 0.08</td><td>0.66 ± 0.08</td>
+          </tr>
+          <tr>
+            <td class="mn">Foresight-Transformer</td>
+            <td class="best">0.93 ± 0.01</td><td class="best">0.87 ± 0.03</td>
+            <td class="second">0.79 ± 0.09</td><td class="best">0.89 ± 0.10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-caption">
+      <strong>Table 3</strong> — Real-world ROC-AUC. Foresight-Transformer achieves the best
+      ROC-AUC in 3 of 4 settings and is the only method that consistently transfers across
+      robot embodiments (ReactorX → Franka).
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CROSS-POLICY GENERALIZATION
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <h2 class="sec-title">Cross-Policy Generalization</h2>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">
+      Can a detector trained on one policy detect failures in rollouts from a different policy?
+      This tests whether Foresight captures <em>execution-level</em> failure cues rather than
+      policy-specific artifacts.
+    </p>
+    <div class="tbl-wrap">
+      <table class="rtbl">
+        <thead>
+          <tr>
+            <th>Benchmark</th>
+            <th>Train policy</th>
+            <th>Test policy</th>
+            <th>ROC-AUC</th>
+            <th>BalAcc</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LIBERO-Long</td>
+            <td>π₀-FAST</td><td>OpenVLA</td>
+            <td>0.64 ± 0.02</td><td class="best">0.90 ± 0.01</td>
+          </tr>
+          <tr>
+            <td>Real-World</td>
+            <td>π₀.₅</td><td>ACT</td>
+            <td class="best">0.94 ± 0.02</td><td class="second">0.82 ± 0.08</td>
+          </tr>
+          <tr>
+            <td>Real-World</td>
+            <td>ACT</td><td>π₀.₅</td>
+            <td>0.56 ± 0.07</td><td>0.52 ± 0.03</td>
+          </tr>
+          <tr>
+            <td>Real-World</td>
+            <td>SmolVLA</td><td>ACT</td>
+            <td class="second">0.92 ± 0.04</td><td>0.73 ± 0.07</td>
+          </tr>
+          <tr>
+            <td>Real-World</td>
+            <td>π₀.₅</td><td>SmolVLA</td>
+            <td>0.67 ± 0.02</td><td>0.62 ± 0.01</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-caption">
+      <strong>Table 4</strong> — Cross-policy transfer. Transfer is feasible but asymmetric:
+      π₀.₅ → ACT works well (0.94 ROC-AUC) because π₀.₅ rollouts cover broader behaviors
+      including recovery trajectories, whereas ACT → π₀.₅ is harder as the ACT-trained
+      detector has not seen recovery behavior.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     REAL-ROBOT SETUP
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-light">
+  <div class="wrap">
+    <h2 class="sec-title">Real-Robot Setup</h2>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">
+      We validate Foresight on two robot platforms across four tasks,
+      spanning three different VLA policies.
+    </p>
+    <div class="pdf-wrap" style="max-width:860px;margin:0 auto;">
+      <iframe src="static/pdfs/real_robot_setup.pdf" height="440px"></iframe>
+    </div>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+      <div style="flex:1;min-width:240px;background:#fff;border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--color-real);">
+        <div style="font-weight:700;margin-bottom:0.4rem;">ReactorX-200</div>
+        <div style="font-size:0.85rem;color:#555;line-height:1.55;">
+          3 tabletop arrangement tasks with RealSense D435 camera.
+          Evaluated with ACT, π₀.₅, and SmolVLA policies.
+        </div>
+      </div>
+      <div style="flex:1;min-width:240px;background:#fff;border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--color-real);">
+        <div style="font-weight:700;margin-bottom:0.4rem;">Franka Emika Panda</div>
+        <div style="font-size:0.85rem;color:#555;line-height:1.55;">
+          Toy pick-up task with RealSense D435 camera.
+          Evaluated with GR00T N1.5 — cross-embodiment generalization test.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     BIBTEX
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-white" id="BibTeX">
+  <div class="wrap">
+    <h2 class="sec-title">BibTeX</h2>
+    <div class="sec-divider"></div>
+    <div style="max-width:680px;margin:0 auto;">
       <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
+        <span style="font-weight:600;font-size:0.9rem;">Citation</span>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX">
+          <i class="fas fa-copy"></i> <span class="copy-text">Copy</span>
         </button>
       </div>
       <pre id="bibtex-code"><code>@article{zhang2026foresight,
-  title   = {Foresight: Failure Detection for Long-Horizon Robotic Manipulation
-             with Action-Conditioned World Model Latents},
+  title   = {Foresight: Failure Detection for Long-Horizon Robotic
+             Manipulation with Action-Conditioned World Model Latents},
   author  = {Zhang, Haoran and Lu, Yifu and Wang, Boyang and Kang, Xuhui and
-             Kuo, Yen-Ling and Cheng, Zezhou and Wang, Mengdi and Jenkins, Odest Chadwicke},
+             Kuo, Yen-Ling and Cheng, Zezhou and Wang, Mengdi and
+             Jenkins, Odest Chadwicke},
   year    = {2026},
   note    = {Under review}
 }</code></pre>
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content has-text-centered">
-            <p>
-              This page was built using the
-              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">
-                Academic Project Page Template</a>,
-              adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              Licensed under
-              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
-                CC BY-SA 4.0</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <p>
+    Built with the
+    <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">
+      Academic Project Page Template</a>
+    (adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>).
+    Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+  </p>
+</footer>
 
-  </main>
+</main>
 </body>
 </html>
