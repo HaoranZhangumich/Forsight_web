@@ -366,22 +366,10 @@
     <h2 class="sec-title">Video Presentation</h2>
     <div class="sec-divider"></div>
     <div class="video-wrap" style="max-width:880px;margin:0 auto;">
-      <iframe
-        src="https://drive.google.com/file/d/1fysYpAlUS85E-9s59V2dO78midyTyE6C/preview"
-        allow="autoplay; encrypted-media; fullscreen"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        loading="lazy">
-      </iframe>
+      <video controls playsinline style="width:100%;border-radius:8px;">
+        <source src="static/videos/demo_video.mp4" type="video/mp4">
+      </video>
     </div>
-    <p style="text-align:center;margin-top:0.9rem;font-size:0.85rem;color:#888;">
-      Video not loading?
-      <a href="https://drive.google.com/file/d/1fysYpAlUS85E-9s59V2dO78midyTyE6C/view"
-         target="_blank" style="color:var(--color-accent);font-weight:600;">
-        Watch directly on Google Drive ↗
-      </a>
-      &nbsp;(make sure the file is shared as "Anyone with the link can view")
-    </p>
   </div>
 </section>
 
@@ -655,12 +643,9 @@
       <div class="qual-block">
         <span class="qual-label ql-tn"><i class="fas fa-check-circle"></i> True Negative — No Alarm</span>
         <div class="qual-video">
-          <!-- TODO: replace with static/videos/real_tn_video.mp4 -->
-          <div class="ph" style="min-height:220px;">
-            <i class="fas fa-video"></i>
-            <b>Real-World True Negative</b>
-            <small>Add file: <code>static/videos/real_tn_video.mp4</code></small>
-          </div>
+          <video controls muted playsinline loop>
+            <source src="static/videos/realworld_tn_task0_ep13_video.mp4" type="video/mp4">
+          </video>
         </div>
         <p class="qual-caption">
           Successful real-robot rollout (ReactorX / ACT — Pick Banana &amp; Lion Toy).
@@ -670,12 +655,9 @@
       <div class="qual-block">
         <span class="qual-label ql-tp"><i class="fas fa-exclamation-circle"></i> True Positive — Alarm Raised</span>
         <div class="qual-video">
-          <!-- TODO: replace with static/videos/real_tp_video.mp4 -->
-          <div class="ph" style="min-height:220px;">
-            <i class="fas fa-video"></i>
-            <b>Real-World True Positive</b>
-            <small>Add file: <code>static/videos/real_tp_video.mp4</code></small>
-          </div>
+          <video controls muted playsinline loop>
+            <source src="static/videos/realworld_tp_02_task1_ep15_video.mp4" type="video/mp4">
+          </video>
         </div>
         <p class="qual-caption">
           Failing real-robot episode (ReactorX / ACT — Pick Banana &amp; Lion Toy).
