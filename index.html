@@ -104,6 +104,13 @@
       text-decoration: none; transition: background .18s;
     }
     .link-btn:hover { background: #333; color: #fff; }
+    .link-btn-tbd {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px; font-size: 0.88rem; font-weight: 600;
+      background: #94a3b8; color: #fff;
+      text-decoration: none; cursor: default; pointer-events: none;
+    }
     .kw-row { margin-top: 0.9rem; display: flex; flex-wrap: wrap;
               justify-content: center; gap: 0.3rem; }
     .kw { background: #f0f4ff; color: #3b5bdb; border-radius: 20px;
@@ -314,14 +321,14 @@
     </div>
 
     <div class="link-row">
-      <a href="static/pdfs/paper.pdf" target="_blank" class="link-btn">
-        <i class="fas fa-file-pdf"></i> Paper
-      </a>
-      <a href="https://github.com/YOUR_CODE_REPO" target="_blank" class="link-btn">
-        <i class="fab fa-github"></i> Code
-      </a>
-      <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="link-btn">
-        <i class="fab fa-youtube"></i> Video
+      <span class="link-btn-tbd">
+        <i class="fas fa-file-pdf"></i> Paper (TBD)
+      </span>
+      <span class="link-btn-tbd">
+        <i class="fab fa-github"></i> Code (TBD)
+      </span>
+      <a href="#video-section" class="link-btn">
+        <i class="fas fa-play-circle"></i> Video
       </a>
     </div>
 
@@ -368,7 +375,7 @@
 <!-- ═══════════════════════════════════════════════════════
      VIDEO PRESENTATION
 ════════════════════════════════════════════════════════ -->
-<section class="sec sec-white">
+<section class="sec sec-white" id="video-section">
   <div class="wrap">
     <h2 class="sec-title">Video Presentation</h2>
     <div class="sec-divider"></div>
