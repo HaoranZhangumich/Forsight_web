@@ -365,8 +365,8 @@
   <div class="wrap">
     <h2 class="sec-title">Video Presentation</h2>
     <div class="sec-divider"></div>
-    <div class="video-wrap" style="max-width:880px;margin:0 auto;">
-      <video controls playsinline style="width:100%;border-radius:8px;">
+    <div style="max-width:880px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+      <video controls playsinline style="width:100%;display:block;">
         <source src="static/videos/demo_video.mp4" type="video/mp4">
       </video>
     </div>
@@ -529,9 +529,45 @@
 
 
 <!-- ═══════════════════════════════════════════════════════
-     QUALITATIVE RESULTS
+     REAL-ROBOT SETUP
 ════════════════════════════════════════════════════════ -->
 <section class="sec sec-white">
+  <div class="wrap">
+    <h2 class="sec-title">Real-Robot Setup</h2>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">
+      We validate Foresight on two robot platforms across four tasks,
+      spanning three different VLA policies.
+    </p>
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <img src="static/images/real_robot_setup.png"
+           alt="Real-robot experimental setup"
+           style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow);">
+    </div>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+      <div style="flex:1;min-width:240px;background:#fff;border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--color-real);">
+        <div style="font-weight:700;margin-bottom:0.4rem;">ReactorX-200</div>
+        <div style="font-size:0.85rem;color:#555;line-height:1.55;">
+          3 tabletop arrangement tasks with RealSense D435 camera.
+          Evaluated with ACT, π₀.₅, and SmolVLA policies.
+        </div>
+      </div>
+      <div style="flex:1;min-width:240px;background:#fff;border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--color-real);">
+        <div style="font-weight:700;margin-bottom:0.4rem;">Franka Emika Panda</div>
+        <div style="font-size:0.85rem;color:#555;line-height:1.55;">
+          Toy pick-up task with RealSense D435 camera.
+          Evaluated with GR00T N1.5 — cross-embodiment generalization test.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     QUALITATIVE RESULTS
+════════════════════════════════════════════════════════ -->
+<section class="sec sec-light">
   <div class="wrap-wide">
     <h2 class="sec-title">Qualitative Results</h2>
     <div class="sec-divider"></div>
@@ -660,8 +696,8 @@
           </video>
         </div>
         <p class="qual-caption">
-          Failing real-robot episode (ReactorX / ACT — Pick Banana &amp; Lion Toy).
-          Robot fails to pick up the banana; Foresight raises an alarm mid-execution.
+          Failing real-robot episode (ReactorX / ACT — Arrange Table).
+          Robot fails to complete the arrangement; Foresight raises an alarm mid-execution.
         </p>
       </div>
     </div>
@@ -877,42 +913,6 @@
       including recovery trajectories, whereas ACT → π₀.₅ is harder as the ACT-trained
       detector has not seen recovery behavior.
     </p>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════
-     REAL-ROBOT SETUP
-════════════════════════════════════════════════════════ -->
-<section class="sec sec-light">
-  <div class="wrap">
-    <h2 class="sec-title">Real-Robot Setup</h2>
-    <div class="sec-divider"></div>
-    <p class="sec-sub">
-      We validate Foresight on two robot platforms across four tasks,
-      spanning three different VLA policies.
-    </p>
-    <div style="max-width:900px;margin:0 auto;text-align:center;">
-      <img src="static/images/real_robot_setup.png"
-           alt="Real-robot experimental setup"
-           style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow);">
-    </div>
-    <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
-      <div style="flex:1;min-width:240px;background:#fff;border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--color-real);">
-        <div style="font-weight:700;margin-bottom:0.4rem;">ReactorX-200</div>
-        <div style="font-size:0.85rem;color:#555;line-height:1.55;">
-          3 tabletop arrangement tasks with RealSense D435 camera.
-          Evaluated with ACT, π₀.₅, and SmolVLA policies.
-        </div>
-      </div>
-      <div style="flex:1;min-width:240px;background:#fff;border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow);border-left:4px solid var(--color-real);">
-        <div style="font-weight:700;margin-bottom:0.4rem;">Franka Emika Panda</div>
-        <div style="font-size:0.85rem;color:#555;line-height:1.55;">
-          Toy pick-up task with RealSense D435 camera.
-          Evaluated with GR00T N1.5 — cross-embodiment generalization test.
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
